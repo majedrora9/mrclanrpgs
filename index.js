@@ -11,6 +11,14 @@ const {
 const fs = require("fs");
 const path = require("path");
 const levelSys = require('./levels/levelSystem');
+const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 const client = new Client({
   intents: [
@@ -217,4 +225,5 @@ process.on('unhandledRejection', console.error);
 // -----------------------------
 // تسجيل الدخول
 // -----------------------------
+
 client.login(process.env.TOKEN);
